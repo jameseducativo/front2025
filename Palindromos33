@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="animal"></p>
+    <p id="edades"></p>
+    <script>
+        var nombre = prompt("Ingrese un nombre de mascota");
+        var edad = parseInt(prompt("Ingrese una edad de mascota"));
+        
+        var otto = ['Otto', 'cat', 'female', 14, true],
+            ada = ['Ada', 'cat', 'male', 13, true],
+            userPet = [nombre, 'dog', 'female', edad, false];
+
+        var pets = [otto, ada, userPet];
+
+        var promedio = (pets[0][3] + pets[1][3] + pets[2][3]) / 3;
+
+        if (pets[0][3] > pets[2][3] && edad == 10) {
+            document.getElementById('edades').innerHTML = "Otto es mayor";
+        } else {
+            document.getElementById('edades').innerHTML = "Otto es menor";
+        }
+
+        document.getElementById('animal').innerHTML = promedio;
+        alert('Ha finalizado la ejecución ' + promedio);
+    </script>
+</body>
+</html>

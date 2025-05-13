@@ -5,27 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <h1>tomas hizo algo</h1>
+     <h1>Carlos hizo algo</h1>
 </head>
 <body>
     <p id="animal"></p>
     <p id="edades"></p>
+    <p id="palindromo"></p> <!-- Nuevo párrafo para mostrar si el nombre es un palíndromo -->
     <script>
         var nombre = prompt("Ingrese un nombre de mascota");
-        var edad = parseInt(prompt("Ingrese un edad de mascota"));
-        var sabine = ['Sabine','cat','female', 14, true],
-        dakota = ['Dakota','cat','male', 13, true],
-        naranja = [nombre,'dog','female',edad,false]
-        pets = [sabine, dakota, naranja];
+        var edad = parseInt(prompt("Ingrese una edad de mascota"));
+        var sabine = ['Sabine', 'cat', 'female', 14, true],
+            dakota = ['Dakota', 'cat', 'male', 13, true],
+            naranja = [nombre, 'dog', 'female', edad, false];
+        var pets = [sabine, dakota, naranja];
         var promedio = (pets[0][3] + pets[1][3] + pets[2][3]) / 3;
-        if(pets[0][3] > pets[2][3] && edad == 10){
-            document.getElementById('edades').innerHTML = "Sabine es mayor";
+
+        // Verificar si el nombre es un palíndromo
+        function esPalindromo(nombre) {
+            var nombreLimpio = nombre.toLowerCase().replace(/[\s\W_]/g, ''); // Convertir a minúsculas y eliminar espacios y caracteres especiales
+            var nombreInvertido = nombreLimpio.split('').reverse().join(''); // Invertir el nombre
+            return nombreLimpio === nombreInvertido; // Comparar original e invertido
         }
-        else{
+
+        if (esPalindromo(nombre)) {
+            document.getElementById('palindromo').innerHTML = `El nombre "${nombre}" es un palíndromo.`;
+        } else {
+            document.getElementById('palindromo').innerHTML = `El nombre "${nombre}" no es un palíndromo.`;
+        }
+
+        if (pets[0][3] > pets[2][3] && edad == 10) {
+            document.getElementById('edades').innerHTML = "Sabine es mayor";
+        } else {
             document.getElementById('edades').innerHTML = "Sabine es menor";
         }
-        //var calcular = (14 + 13 + '50') / 3;
+
         document.getElementById('animal').innerHTML = promedio;
-        alert('Ha finalizado la ejecucion '+promedio);
+        alert('Ha finalizado la ejecución ' + promedio);
     </script>
 </body>
 </html>

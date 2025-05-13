@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="animal"></p>
+    <p id="edades"></p>
+    <script>
+        var nombre = prompt("Ingrese un nombre de mascota");
+        var edad = parseInt(prompt("Ingrese un edad de mascota"));
+        var sabine = ['Sabine','cat','female', 14, true],
+        dakota = ['Dakota','cat','male', 13, true],
+        naranja = [nombre,'dog','female',edad,false]
+        pets = [sabine, dakota, naranja];
+        var promedio = (pets[0][3] + pets[1][3] + pets[2][3]) / 3;
+        if(pets[0][3] > pets[2][3] && edad == 10){
+            document.getElementById('edades').innerHTML = "Sabine es mayor";
+        }
+        else{
+            document.getElementById('edades').innerHTML = "Sabine es menor";
+        }
+        //var calcular = (14 + 13 + '50') / 3;
+        document.getElementById('animal').innerHTML = promedio;
+        alert('Ha finalizado la ejecucion '+promedio);
+    </script>
+</body>
+</html>

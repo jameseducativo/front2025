@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palimdromos</title>
+    <h1>tomas hizo algo</h1>
+</head>
+<body>
+    <h1>Es un Palíndromo?</h1>
+    <form id="form-palindromo">
+        <input type="text" id="texto" placeholder="Escribe una palabra o frase" required>
+        <button type="submit">Verificar</button>
+    </form>
+    <div class="resultado" id="resultado"></div>
+
+    <script>
+        document.getElementById('form-palindromo').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const texto = document.getElementById('texto').value.toLowerCase().replace(/[\W_]/g, '');
+            const esPalindromo = texto === texto.split('').reverse().join('');
+            const resultado = document.getElementById('resultado');
+            if (esPalindromo) {
+                resultado.textContent = `"${document.getElementById('texto').value}" es un palíndromo.`;
+            } else {
+                resultado.textContent = `"${document.getElementById('texto').value}" no es un palíndromo.`;
+            }
+        });
+    </script>
+</body>
+</html>
